@@ -28,10 +28,10 @@ namespace TheWorld
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseDefaultFiles();
+
+            app.UseStaticFiles();
+
         }
     }
 }
