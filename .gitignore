@@ -198,6 +198,6 @@ FakesAssemblies/
 *.opt
 
 project.lock.json
-**/sample/**/wwwroot/lib/
+**/TheWorld/**/wwwroot/lib/
 **/samples/**/wwwroot/lib/
 __pycache__/
