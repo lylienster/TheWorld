@@ -17,3 +17,5 @@ Use AddEnvironmentVariables to override variables in config.json. Useful for set
 Use Font-Awesome as an alternative to Bootstrap icons
 
 Use Bootswatch to change to look and feel of Bootstrap templates
+
+Use .col-xx-offset-x to offset the grid column
