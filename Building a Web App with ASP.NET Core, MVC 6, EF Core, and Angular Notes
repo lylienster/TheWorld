@@ -1,0 +1,19 @@
+Notes:
+
+Install VS extensions: Web Essentials 2015.2, Web Compiler, Add New File, Open Command Line, TypeScript For VS 2015 
+
+Shift+Alt+W to surround content with a div. (Web Essentials shortcut)
+
+Create stylesheets to be able to reuse them across the website
+
+Shift-F2 to use Add New File extension
+
+li.active to select the li element that has a class named active
+
+Use services.AddScope to do dependency injection
+
+Use AddEnvironmentVariables to override variables in config.json. Useful for setting private information that should belong to the machine
+
+Use Font-Awesome as an alternative to Bootstrap icons
+
+Use Bootswatch to change to look and feel of Bootstrap templates
