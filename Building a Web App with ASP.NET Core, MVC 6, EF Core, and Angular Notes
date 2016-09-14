@@ -19,3 +19,12 @@ Use Font-Awesome as an alternative to Bootstrap icons
 Use Bootswatch to change to look and feel of Bootstrap templates
 
 Use .col-xx-offset-x to offset the grid column
+
+
+Entity Framework
+Open comand line in the same directory as the project.json file to use "dotnet ef", or go to project.json file and press Alt+Space to open the command line here
+
+dotnet ef
+dotnet ef migrations add InitialDatabase 	// read the project (TheWorld), look for DbContext object, and create the tables  
+dotnet ef database update 					// read the project, look at the migrations and update the database to the latest sets of migrations 
+ 
