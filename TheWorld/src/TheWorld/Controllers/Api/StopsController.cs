@@ -7,6 +7,7 @@ using TheWorld.Models;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
 using TheWorld.ViewModels;
+using TheWorld.Services;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,13 +16,15 @@ namespace TheWorld.Controllers.Api
     [Route("/api/trips/{tripName}/stops")]
     public class StopsController : Controller
     {
+        private GeoCoordsService _coordsService;
         private ILogger<StopsController> _logger;
         private IWorldRepository _repository;
 
-        public StopsController(IWorldRepository repository, ILogger<StopsController> logger)
+        public StopsController(IWorldRepository repository, ILogger<StopsController> logger, GeoCoordsService coordsService)
         {
             _repository = repository;
             _logger = logger;
+            _coordsService = coordsService;
         }
 
         [HttpGet("")]
@@ -50,13 +53,27 @@ namespace TheWorld.Controllers.Api
                 {
                     var newStop = Mapper.Map<Stop>(vm);
 
-                    _repository.AddStop(tripName, newStop);
-
-                    if (await _repository.SaveChangesAsync())
+                    var result = await _coordsService.GetCoordsAsync(newStop.Name);
+                    if (!result.Success)
                     {
-                        return Created($"/api/trips/{tripName}/stops/{newStop.Name}",
-                            Mapper.Map<StopViewModel>(newStop));
+                        _logger.LogError(result.Message);
                     }
+                    else
+                    {
+                        newStop.Latitude = result.Latitude;
+                        newStop.Longitude = result.Longtitude;
+
+                        _repository.AddStop(tripName, newStop);
+
+                        if (await _repository.SaveChangesAsync())
+                        {
+                            return Created($"/api/trips/{tripName}/stops/{newStop.Name}",
+                                Mapper.Map<StopViewModel>(newStop));
+                        }
+                    }
+                    
+
+                    
 
                 
                 }
