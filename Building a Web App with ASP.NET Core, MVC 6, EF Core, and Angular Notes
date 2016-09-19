@@ -28,3 +28,9 @@ dotnet ef
 dotnet ef migrations add InitialDatabase 	// read the project (TheWorld), look for DbContext object, and create the tables  
 dotnet ef database update 					// read the project, look at the migrations and update the database to the latest sets of migrations 
  
+Use AutoMapper to do mapping between models 
+
+Create environment variables for private values like api keys and passwords, so that when we check it the code to a public repository, other people won't able to see them. 
+	- Have to setup the env variables manually (or using a script) for each environment (dev, staging, live) if they use different keys.
+	
+
