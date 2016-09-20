@@ -30,8 +30,8 @@ dotnet ef database update 					// read the project, look at the migrations and u
  
 Use AutoMapper to do mapping between models 
 
-Create environment variables for private values like api keys and passwords, so that when we check it the code to a public repository, other people won't able to see them. 
-	- Have to setup the env variables manually (or using a script) for each environment (dev, staging, live) if they use different keys.
+Create environment variables for private values like api keys and passwords, so that when we check it the code to a public repository, other people won't able to see them. (Ex: Keys__BingKey for variable name)
+	- Have to setup the env variables manually (or using a script) for each environment (dev, staging, live) if they use different keys.)
 	
 Replace DbContext with IdentityDbContect to store Identities in the Database
 
