@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace TheWorld.Models
 {
-    public class WorldContext : DbContext
+    public class WorldContext : Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext<WorldUser>
     {
         private IConfigurationRoot _config;
 
