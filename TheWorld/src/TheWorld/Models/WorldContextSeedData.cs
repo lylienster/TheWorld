@@ -26,7 +26,7 @@ namespace TheWorld.Models
                     Email = "taile@theworld.com"
                 };
 
-                await _userManger.CreateAsync(user, "password");
+                await _userManger.CreateAsync(user, "P@ssw0rd!");
             }
 
 
