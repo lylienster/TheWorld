@@ -35,17 +35,17 @@ namespace TheWorld.Models
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public Trip GetTripByName(string tripName)
+        public Trip GetTripByName(string tripName, string username)
         {
             return _context.Trips
                 .Include(t => t.Stops)
-                .Where(t => t.Name == tripName)
+                .Where(t => t.Name == tripName && t.UserName == username)
                 .FirstOrDefault();
         }
 
-        public void AddStop(string tripName, Stop newStop)
+        public void AddStop(string tripName, string username, Stop newStop)
         {
-            var trip = GetTripByName(tripName);
+            var trip = GetTripByName(tripName, username);
 
             if (trip != null)
             {
