@@ -30,8 +30,8 @@ namespace TheWorld.Controllers.Api
         {
             try
             {
-                var results = _repository.GetAllTrips();
-                return Ok(Mapper.Map<IEnumerable<TripViewModel>>(results));
+                var trips = _repository.GetUserTripsWithStops(User.Identity.Name);
+                return Ok(Mapper.Map<IEnumerable<TripViewModel>>(trips));
 
             }
             catch (Exception ex)
@@ -49,6 +49,8 @@ namespace TheWorld.Controllers.Api
             if (ModelState.IsValid)
             {
                 var newTrip = Mapper.Map<Trip>(theTrip);
+
+                newTrip.UserName = User.Identity.Name;
 
                 _repository.AddTrip(newTrip);
 
