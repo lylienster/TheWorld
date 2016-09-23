@@ -35,4 +35,7 @@ Create environment variables for private values like api keys and passwords, so 
 	
 Replace DbContext with IdentityDbContect to store Identities in the Database
 
+AngularJS
++ Use ng-disabled="nameOfForm.$invalid" on submit button to disable button if the form is invalid (ex: <input type="submit" value="Add" ng-disabled="newTripForm.$invalid")
++ Use ng-show="nameOfForm.nameOfElement.$error.required" to show message if required input doesn't have value (ex: <span class="text-warning" ng-show="newTripForm.name.$error.required">Name is required.</span>)
 
