@@ -39,3 +39,9 @@ AngularJS
 + Use ng-disabled="nameOfForm.$invalid" on submit button to disable button if the form is invalid (ex: <input type="submit" value="Add" ng-disabled="newTripForm.$invalid")
 + Use ng-show="nameOfForm.nameOfElement.$error.required" to show message if required input doesn't have value (ex: <span class="text-warning" ng-show="newTripForm.name.$error.required">Name is required.</span>)
 
+To run this project on a different computer
++ Update to VS 2015 Update 3
++ Install DotNetCore VS2015Tools Preview2 (maybe optional)
++ Install DotNetCore SDK 1.0.0-preview2
++ run command "dotnet ef database update" in the root folder of the project to create the database
++ set up the environment variable for bing api key to use Bing's api
