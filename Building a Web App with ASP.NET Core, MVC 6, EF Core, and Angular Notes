@@ -1,5 +1,11 @@
 Notes:
-
+To run this project on a different computer
+	+ Update to VS 2015 Update 3
+	+ Install DotNetCore VS2015Tools Preview2 (maybe optional)
+	+ Install DotNetCore SDK 1.0.0-preview2
+	+ run command "dotnet ef database update" in the root folder of the project to create the database
+	+ set up the environment variable for bing api key to use Bing's api
+	
 Install VS extensions: Web Essentials 2015.2, Web Compiler, Add New File, Open Command Line, TypeScript For VS 2015 
 
 Shift+Alt+W to surround content with a div. (Web Essentials shortcut)
@@ -36,12 +42,20 @@ Create environment variables for private values like api keys and passwords, so 
 Replace DbContext with IdentityDbContect to store Identities in the Database
 
 AngularJS
-+ Use ng-disabled="nameOfForm.$invalid" on submit button to disable button if the form is invalid (ex: <input type="submit" value="Add" ng-disabled="newTripForm.$invalid")
-+ Use ng-show="nameOfForm.nameOfElement.$error.required" to show message if required input doesn't have value (ex: <span class="text-warning" ng-show="newTripForm.name.$error.required">Name is required.</span>)
+	+ Use ng-disabled="nameOfForm.$invalid" on submit button to disable button if the form is invalid (ex: <input type="submit" value="Add" ng-disabled="newTripForm.$invalid")
+	+ Use ng-show="nameOfForm.nameOfElement.$error.required" to show message if required input doesn't have value (ex: <span class="text-warning" ng-show="newTripForm.name.$error.required">Name is required.</span>)
 
-To run this project on a different computer
-+ Update to VS 2015 Update 3
-+ Install DotNetCore VS2015Tools Preview2 (maybe optional)
-+ Install DotNetCore SDK 1.0.0-preview2
-+ run command "dotnet ef database update" in the root folder of the project to create the database
-+ set up the environment variable for bing api key to use Bing's api
+	To create an Angular directive
+		+ create module and create directive for this module (ex: angular.module("simpleControls", []).directive("waitCursor", waitCursor);)
+		+ implement the functionality of the directive 
+			function waitCursor() {
+				return {
+					scope: {
+						show: "=displayWhen" 				// variable passed from where the directive was consumed
+					},
+					templateUrl: "/views/waitCursor.html" 	// the view of the directive
+				};
+			};
+		+ import the directive to the module that uses it (ex: angular.module("app-trips",["simpleControls"]);)
+		+ import the script before the module script and use it on the view (ex: <wait-cursor display-when="vm.isBusy"></wait-cursor>)
+	+ Use angular.copy to map objects from controller to scope variable (ex: angular.copy(response.data, vm.trips))
