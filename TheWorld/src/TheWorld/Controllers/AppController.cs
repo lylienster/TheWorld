@@ -36,6 +36,7 @@ namespace TheWorld.Controllers
         [Authorize]
         public IActionResult Trips()
         {
+            ViewBag.GoogleApiKey = _config["Keys:GoogleApi"];
             return View();
         }
 
