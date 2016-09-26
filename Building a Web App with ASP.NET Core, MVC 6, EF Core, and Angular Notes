@@ -60,4 +60,6 @@ AngularJS
 		+ import the script before the module script and use it on the view (ex: <wait-cursor display-when="vm.isBusy"></wait-cursor>)
 	+ Use angular.copy to map objects from controller to scope variable (ex: angular.copy(response.data, vm.trips))
 
-Alt-Space to open command line window in Visual Studio	
+Alt-Space to open command line window in Visual Studio
+
++ Install Gulp using npn (pakcage.json)	
