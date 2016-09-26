@@ -63,3 +63,10 @@ AngularJS
 Alt-Space to open command line window in Visual Studio
 
 + Install Gulp using npm (pakcage.json)	
+
+To depoy the project using Visual Studio (Set ASPNETCORE_ENVIRONMENT to Staging because default is Production and we set up so that https is required in Production)
+1) Publish the project to a folder (right-click the project, click Pulish, and set the destination of the project)
+	+ An alternative is to use command line (Go to folder of project, open command line, type "dotnet publish -o c:\...\destinationOfPulishedProject)
+2) Go to the location of the project, open command line there and type "dotnet NameOfProject.dll"
+
+-- dotnet publish -o c:\projectLocation r- win81-x64 to get exe file for windows
